@@ -1,0 +1,149 @@
+/* ===== PALETA: crema #fffaf2 · pino #0f5a31 · baya #c81d2e · oro #ffd96b · nieve #fff ===== */
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;overflow:hidden}
+body{font:500 14px Quicksand,sans-serif;color:#4a2a1d;background:
+ radial-gradient(circle at 15% 20%,#2c9a55 0,transparent 40%),radial-gradient(circle at 85% 80%,#a3172a 0,transparent 42%),
+ radial-gradient(circle at 80% 15%,#1c7d44 0,transparent 38%),#0c4a28}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(#fff8 1.5px,transparent 2px) 0 0/54px 54px,radial-gradient(#ffe9a88a 1.2px,transparent 2px) 27px 27px/54px 54px}
+button{font:inherit;cursor:pointer;border:0}
+a{text-decoration:none}
+
+/* ===== ESCENARIO (1280x740, se escala solo para caber en pantalla) ===== */
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:740px}
+#lights{position:absolute;left:0;top:0;width:100%;height:80px;z-index:6;pointer-events:none}
+.bl{fill:var(--c);filter:drop-shadow(0 0 6px var(--c));animation:tw 1.5s ease-in-out infinite alternate}
+@keyframes tw{from{opacity:.45}to{opacity:1}}
+.win{position:absolute;left:30px;right:30px;top:58px;bottom:20px;padding:9px;border-radius:28px;
+ background:repeating-linear-gradient(135deg,#c81d2e 0 13px,#fff 13px 26px);box-shadow:0 16px 40px #000a,0 0 0 3px #0f4d2a}
+.pg{height:100%;display:flex;flex-direction:column;border-radius:19px;overflow:hidden;
+ background:linear-gradient(#c81d2e12 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,#c81d2e12 1px,transparent 1px) 0 0/24px 24px,#fffaf2}
+.bar{height:40px;flex:none;display:flex;align-items:flex-end;gap:12px;padding:0 14px;background:linear-gradient(#0f5a31,#0b3f24);border-bottom:3px solid #ffd96b}
+.d3{align-self:center;display:flex;gap:6px}.d3 i{width:11px;height:11px;border-radius:50%;background:#ff5b5b}.d3 i:nth-child(2){background:#ffd96b}.d3 i:nth-child(3){background:#58d27c}
+.url{flex:1;align-self:center;height:26px;line-height:26px;padding:0 14px;border-radius:14px;background:#fffaf2;font-size:13px;color:#6b4a3a}
+.tab{height:32px;padding:0 16px;border-radius:12px 12px 0 0;background:#ffd96b;color:#8a1a22;font-weight:700;font-size:16px;animation:pulse 2.2s infinite}
+.tab small{font-size:12px}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 #ffd96b99}50%{box-shadow:0 0 14px 4px #ffd96bcc}}
+.body{flex:1;min-height:0;display:flex}
+
+/* columna izquierda */
+#left{width:272px;flex:none;padding:16px 6px 10px 18px;display:flex;flex-direction:column;gap:12px}
+.ph{position:relative;flex:1;min-height:0;display:grid;place-items:center;font-size:92px;overflow:hidden;border:7px solid #fff;outline:3px dashed #c81d2e;border-radius:6px;
+ transform:rotate(-1.5deg);box-shadow:0 8px 18px #0005;background:linear-gradient(160deg,#d8f0dc,#ffe3e0)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.plat{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.plat a{padding:7px 4px;text-align:center;border-radius:999px;color:#fff;font:700 12px Quicksand;border:2px solid #ffd96b;background:linear-gradient(#e03a47,#b3182a);box-shadow:0 3px 0 #7d1019;transition:transform .15s}
+.plat a:nth-child(2n){background:linear-gradient(#2d9a57,#12683a);box-shadow:0 3px 0 #0a4325}
+.plat a:hover{transform:translateY(-2px)}
+
+/* columna de información */
+#info{flex:1;min-width:0;padding:10px 22px 10px 12px;display:flex;flex-direction:column;gap:9px;position:relative}
+.name{font:700 42px/1 'Mountains of Christmas';color:#b3182a;text-align:center;text-shadow:0 2px 0 #ffd96b}
+.vers{display:flex;justify-content:center;gap:8px;font-size:11px;font-weight:700}
+.vers span{background:#ffe3e6;border-radius:7px;padding:2px 9px;color:#8a1a22}.vers span+span{background:#e6f4e9;color:#0f5a31}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px}
+.meta div{background:#e6f4e9;border-left:5px solid #1f7a43;border-radius:7px;padding:4px 10px;font-size:13px}
+.meta b{display:block;color:#1f7a43;font-size:11px}
+.role{font-size:13px;line-height:1.45;text-align:center;padding:4px 10px;background:linear-gradient(90deg,transparent,#ffe3e6,transparent)}
+.role em{color:#b3182a;font-style:normal;font-weight:700}
+.sec{font:700 22px/1 'Mountains of Christmas';color:#1f7a43;text-align:center}
+.rate{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 20px}
+.rate div{font-size:13px;font-weight:700;display:flex;justify-content:space-between}
+.rate .tr{grid-column:1/-1;height:11px;margin-top:3px;border-radius:9px;background:#ead8c6;overflow:hidden}
+.rate i{display:block;height:100%;width:0;border-radius:9px;transition:width 1.5s ease-out;background:repeating-linear-gradient(45deg,#e03a47 0 8px,#fff 8px 16px)}
+.rate>span{display:block}
+.tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.tags span{background:linear-gradient(#fff,#ffe3e6);border:2px solid #e8a0a8;border-radius:999px;padding:3px 12px;font-size:12px;font-weight:700;color:#8a1a22}
+
+/* reproductor + letra */
+.pl{position:relative;display:flex;align-items:center;gap:12px;padding:8px 14px;border-radius:18px;color:#fff;border:2px solid #ffd96b;background:linear-gradient(120deg,#0f5a31,#1a8148)}
+.disc{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-size:22px;background:radial-gradient(circle at 35% 30%,#ff7a85,#b3182a 62%);box-shadow:0 0 0 3px #fff6}
+.playing .disc{animation:spin 4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pl .t{flex:1;min-width:0}.pl b{display:block;font-size:14px}.pl small{opacity:.85;font-size:12px}
+.trk{height:7px;margin:6px 0 2px;border-radius:9px;background:#fff4;cursor:pointer;overflow:hidden}
+.trk i{display:block;height:100%;background:#ffd96b;transform-origin:left;transform:scaleX(0)}
+.tm{display:flex;justify-content:space-between;font-size:10px}
+.cb{flex:none;width:42px;height:42px;border-radius:50%;background:#ffd96b;color:#8a1a22;font-size:18px;box-shadow:0 3px 0 #b88a1c}
+.sb{flex:none;width:34px;height:34px;border-radius:50%;background:#fff2;color:#fff;font-size:16px}
+.sb.on{color:#ff5b7a;background:#fff}
+.lyr{display:none;position:absolute;left:0;right:0;bottom:calc(100% + 8px);height:175px;overflow:auto;text-align:center;padding:10px 14px;z-index:8;
+ border:3px solid #c81d2e;border-radius:16px;background:#fffaf2f5;color:#4a2a1d;box-shadow:0 10px 26px #0006}
+.pl.open .lyr{display:block}
+.lyr p{margin:7px 0;font-size:13px;opacity:.5}.lyr p.on{opacity:1;color:#b3182a;font-weight:700;font-size:15px}
+
+/* ===== CALENDARIO DE ADVIENTO ===== */
+#cal{height:166px;flex:none;padding:6px 16px 12px;color:#fff;border-top:5px solid #ffd96b;
+ background:radial-gradient(#ffe9a855 1.2px,transparent 2px) 0 0/30px 30px,linear-gradient(#0f5a31,#0a3a21)}
+#cal h3{font:700 21px/1.1 'Mountains of Christmas';text-align:center;color:#ffe9a8;margin-bottom:6px}
+#cal small{font:500 12px Quicksand;opacity:.8;margin-left:8px}
+#doors{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:1fr 1fr;gap:9px;height:calc(100% - 28px)}
+.door{position:relative;perspective:420px;background:none;padding:0}
+.door .in{position:absolute;inset:0;display:grid;place-items:center;font-size:28px;border-radius:10px;overflow:hidden;background:#fff3cf;box-shadow:inset 0 0 0 3px #e0b94f}
+.door .in img{width:100%;height:100%;object-fit:cover}
+.door .lid{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden;border-radius:10px;background:var(--g);
+ transform-origin:left center;transition:transform .7s;box-shadow:0 4px 0 #0006,inset 0 0 0 2px #fff5}
+.door .lid::before,.door .lid::after{content:"";position:absolute;background:var(--r)}
+.door .lid::before{left:0;right:0;top:50%;height:11px;margin-top:-5px}
+.door .lid::after{top:0;bottom:0;left:50%;width:11px;margin-left:-5px}
+.door i{position:relative;z-index:1;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;font:700 20px 'Mountains of Christmas';font-style:normal;color:#8a1a22;
+ background:radial-gradient(#fff6c8,#f1c040);box-shadow:0 2px 5px #0007}
+.door:hover .lid{transform:rotateY(-18deg)}.door.open .lid{transform:rotateY(-118deg)}
+.c0{--g:#c81d2e;--r:#ffd96b}.c1{--g:#1f8a4c;--r:#e8403f}.c2{--g:#f3f0e6;--r:#c81d2e}.c3{--g:#2a6fb8;--r:#fff}
+
+/* ===== DECORACIÓN ===== */
+.ball{position:absolute;top:0;z-index:7;pointer-events:none;transform-origin:50% 0;animation:sway 3.6s ease-in-out infinite alternate}
+.ball::before{content:"";position:absolute;left:50%;top:0;width:2px;height:var(--l);background:#e8cf8a}
+.ball i{position:absolute;left:0;top:var(--l);width:var(--s);height:var(--s);border-radius:50%;
+ background:radial-gradient(circle at 35% 28%,#fff 0 6%,var(--c) 32%,#0007 135%);box-shadow:inset -4px -6px 10px #0005,0 5px 9px #0005}
+.ball i::before{content:"";position:absolute;left:50%;top:-7px;width:14px;height:9px;margin-left:-7px;border-radius:3px;background:#e9c14f}
+@keyframes sway{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+.sl{position:absolute;z-index:9;pointer-events:none;line-height:1;animation:bob 3.4s ease-in-out infinite alternate;filter:drop-shadow(0 4px 4px #0006)}
+.sl img{width:100%;display:block}
+@keyframes bob{from{margin-top:0}to{margin-top:-7px}}
+.sn{position:fixed;top:-6vh;z-index:30;color:#fff;pointer-events:none;text-shadow:0 0 6px #fff;animation:fall linear infinite}
+@keyframes fall{to{transform:translate(50px,110vh) rotate(300deg)}}
+
+/* ===== VENTANAS (bienvenida / puertitas) ===== */
+#modal{display:none;position:fixed;inset:0;z-index:60;place-items:center;background:#06210fcc;backdrop-filter:blur(3px)}
+#modal.on{display:grid}
+.mbox{position:relative;width:min(560px,90vw);max-height:90vh;overflow:auto;padding:30px 34px;text-align:center;border:9px solid transparent;border-radius:26px;
+ background:linear-gradient(#fffaf2,#fffaf2) padding-box,repeating-linear-gradient(135deg,#c81d2e 0 13px,#fff 13px 26px) border-box;animation:pop .45s}
+@keyframes pop{from{transform:scale(.8) rotate(-3deg);opacity:0}}
+.x{position:absolute;right:12px;top:10px;width:32px;height:32px;border-radius:50%;background:#c81d2e;color:#fff}
+.mbox h2{font:700 38px 'Mountains of Christmas';color:#b3182a;margin:6px 0 10px}
+.mbox p{line-height:1.6;margin-bottom:10px}
+.em{font-size:44px}.sg{font:400 26px Pacifico;color:#1f7a43}
+.av{width:150px;height:150px;border-radius:50%;object-fit:cover;border:5px solid #ffd96b;box-shadow:0 6px 16px #0005}
+.go{display:inline-block;margin-top:8px;padding:10px 26px;border-radius:999px;background:linear-gradient(#e03a47,#b3182a);color:#fff;font-weight:700;border:2px solid #ffd96b}
+
+/* ===== INTRO ===== */
+#intro{position:fixed;inset:0;z-index:100;cursor:pointer;transition:opacity .9s}
+#intro.out{opacity:0;pointer-events:none}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:2.2vmin;text-align:center;overflow:hidden}
+.slide.on{display:flex;animation:fadein .8s}
+@keyframes fadein{from{opacity:0}}
+.s1{background:radial-gradient(circle at 20% 30%,#35a862,transparent 45%),radial-gradient(circle at 80% 70%,#0c6b34,transparent 50%),radial-gradient(circle at 60% 15%,#74d18c,transparent 35%),#1c8a47}
+.s1::before{content:"";position:absolute;inset:0;opacity:.6;background:radial-gradient(#fff 1.8px,transparent 2.4px) 0 0/48px 48px,radial-gradient(#fff9 1.2px,transparent 2px) 24px 24px/48px 48px}
+.s1 .lt{position:absolute;left:0;top:0;width:100%;height:14vmin}
+.s1>*{position:relative}.s1>.lt,.s1>.dc{position:absolute}
+.paper{position:relative;width:min(70vmin,540px);padding:5vmin 3vmin 3vmin;border:.5vmin solid #1b1b1b;border-radius:30px 26px 34px 28px;
+ background:linear-gradient(135deg,#fff6ee,#fde9dc);box-shadow:0 1.5vmin 4vmin #0006,inset 0 0 0 1vmin #fff8;outline:.45vmin dotted #3b6fb8;outline-offset:-1.6vmin}
+.paper h1{font:400 9.4vmin/1.02 Pacifico;color:#e8a21c}
+.dots{color:#e0303c;letter-spacing:1vmin;font-size:2vmin;margin-top:2vmin}
+.bow{position:absolute;top:-7vmin;left:50%;width:15vmin;height:8vmin;transform:translateX(-50%)}
+.bow::before,.bow::after{content:"";position:absolute;top:0;width:6.4vmin;height:7vmin;border:1vmin solid #d11f2e;border-radius:50%}
+.bow::before{left:0;transform:rotate(-38deg)}.bow::after{right:0;transform:rotate(38deg)}
+.bow i{position:absolute;left:50%;top:4vmin;width:3.4vmin;height:3.4vmin;margin-left:-1.7vmin;border-radius:50%;background:#d11f2e;z-index:1}
+.sub{font:700 3.9vmin/1.25 Quicksand;color:#fff;letter-spacing:.2vmin;text-shadow:0 .3vmin 0 #0a3a21,0 0 1vmin #0008}
+.by{font:400 7.4vmin Pacifico;color:#f08a2c;text-shadow:0 .3vmin 0 #fff8}
+.tap{color:#fff;font-size:2vmin;animation:tw 1.2s infinite alternate}
+.dc{position:absolute;line-height:1;filter:drop-shadow(0 .4vmin .5vmin #0006)}
+.s2{background:#fff}
+.s2 .fr{position:absolute;inset:3.2vmin;border:.55vmin solid #0f3d2a}
+.s2 .fr::before{content:"";position:absolute;inset:1.3vmin;border:.25vmin solid #c81d2e}
+.s2 .tx{position:relative}
+.s2 h2{font:400 15vmin/1 Lobster;color:#111;transform:rotate(-2deg)}
+.s2 h3{font:400 7vmin/1.15 Pacifico;color:#3a3a3a;margin:4vmin 0}
+.s2 h4{font:400 10vmin/1 Lobster;color:#c81d2e}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
