@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fdeef4">
+<title>Felipe Moreno Gonzaga · Bachira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Parisienne&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="sky" aria-hidden="true"></div>
+
+<main class="win"><div class="in">
+
+  <!-- 1 · barra de navegador -->
+  <header class="bar">
+    <div class="ic" aria-hidden="true"><i class="fas fa-house"></i><i class="fas fa-rotate-right"></i><i class="fas fa-magnifying-glass"></i></div>
+    <div class="url"><span class="pre">https://</span><span id="url">www.bachira.bot/felipe</span></div>
+    <button class="tab" id="wb" type="button" aria-label="Abrir mensaje de bienvenida"><i class="fas fa-envelope-open-text"></i></button>
+  </header>
+
+  <!-- 2 · tira de bots (se llena sola con tu bots.js) -->
+  <nav class="strip" id="strip" aria-label="Más bots" tabindex="0"></nav>
+
+  <!-- 3 · caja de aviso -->
+  <aside class="note" id="note"></aside>
+
+  <!-- 4 · datos en una línea rosa -->
+  <p class="line" id="line"></p>
+
+  <!-- 5 · ficha: texto a la izquierda, foto y enlaces a la derecha -->
+  <section class="body">
+
+    <div class="main">
+      <h1 id="name"></h1>
+      <div class="desc" id="desc"></div>
+
+      <h2 class="rt">Rating</h2>
+      <div class="rating" id="rating"></div>
+
+      <!-- reproductor compacto tipo Spotify: la portada es la de la CANCIÓN, no la del personaje -->
+      <div class="player">
+        <div class="cover">
+          <i class="fas fa-music no" aria-hidden="true"></i>
+          <img id="dimg" alt="">
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="pinfo"><p id="st"></p><small id="sa"></small></div>
+        <div class="ctl">
+          <button id="prev" type="button" aria-label="Anterior"><i class="fas fa-backward-step"></i></button>
+          <button id="pp" class="pp" type="button" aria-label="Reproducir o pausar"><i class="fas fa-play"></i></button>
+          <button id="next" type="button" aria-label="Siguiente"><i class="fas fa-forward-step"></i></button>
+        </div>
+        <div class="prog">
+          <span id="cur">0:00</span>
+          <div class="track" id="trk" role="slider" tabindex="0" aria-label="Progreso de la canción" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="fill"></i></div>
+          <span id="dur">0:00</span>
+        </div>
+      </div>
+
+      <!-- letra: solo se ve si la canción tiene letra en script.js -->
+      <div class="lyr" id="lyr">
+        <p id="ly" aria-live="polite">♪</p>
+        <button id="lyb" type="button"><i class="fas fa-align-left"></i> Letra</button>
+      </div>
+
+      <div class="tags" id="tags"></div>
+    </div>
+
+    <aside class="side">
+      <div class="ver" id="ver"></div>
+      <figure class="photo"><img id="img" alt="Retrato del personaje"></figure>
+      <nav class="plats" id="plats" aria-label="Dónde chatear con el bot"></nav>
+    </aside>
+
+  </section>
+
+  <!-- 6 · botones grandes de abajo (Lore, Relaciones, Datos Extra...) -->
+  <footer class="more" id="more"></footer>
+
+</div></main>
+
+<!-- ventana: bienvenida -->
+<div class="modal" id="m-wel" role="dialog" aria-modal="true" aria-label="Bienvenida">
+  <div class="card letter">
+    <button class="x" type="button" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
+    <div class="orn" aria-hidden="true">❄ ♡ ❄</div>
+    <h3>Bienvenidos</h3>
+    <p>Disfruté muchísimo hacer este calendario para ustedes. Ojalá disfruten todas estas tramas tan distintas, y todo lo que todavía está por venir.</p>
+    <p>Gracias por quedarse, por leer y por darle vida a cada personaje.</p>
+    <p class="sign">con mucho amor,<br><span>Bachira</span> ♡</p>
+  </div>
+</div>
+
+<!-- ventana: letra completa -->
+<div class="modal" id="m-lyr" role="dialog" aria-modal="true" aria-label="Letra completa">
+  <div class="card">
+    <button class="x" type="button" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
+    <h3 id="lt"></h3>
+    <div id="lall"></div>
+  </div>
+</div>
+
+<!-- ventana: Lore, Relaciones, Datos Extra... (se rellena desde script.js) -->
+<div class="modal" id="m-ex" role="dialog" aria-modal="true" aria-labelledby="ext">
+  <div class="card">
+    <button class="x" type="button" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
+    <h3 id="ext"></h3>
+    <div id="exb"></div>
+  </div>
+</div>
+
+<audio id="au" preload="none"></audio>
+<script src="https://elbachira.github.io/bots.js?v=1.0"></script>
+<script src="script.js"></script>
+</body>
+</html>
