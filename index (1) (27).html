@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fdeef4">
+<title>Felipe Moreno Gonzaga · Bachira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Parisienne&family=Patrick+Hand&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="sky" aria-hidden="true"></div>
+
+<!-- regalo de Navidad: se dibuja una vez y se reutiliza en cada puerta sin bot -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8db4"/><stop offset="1" stop-color="#d42a6b"/></linearGradient>
+    <linearGradient id="gB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb8d2"/><stop offset="1" stop-color="#f0629a"/></linearGradient>
+    <linearGradient id="gC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3b0"/><stop offset="1" stop-color="#e8a323"/></linearGradient>
+    <symbol id="gift" viewBox="0 0 64 64">
+      <g stroke="#2a0a1d" stroke-width="1.6" stroke-linejoin="round">
+        <rect x="11" y="32" width="42" height="25" rx="4" fill="url(#gA)"/>
+        <rect x="8" y="23" width="48" height="12" rx="3.5" fill="url(#gB)"/>
+        <rect x="28" y="23" width="8" height="34" fill="url(#gC)"/>
+        <path d="M32 23C25 8 11 11 15 19c3 5 13 4 17 4Z" fill="url(#gC)"/>
+        <path d="M32 23C39 8 53 11 49 19c-3 5-13 4-17 4Z" fill="url(#gC)"/>
+        <circle cx="32" cy="22.5" r="4.3" fill="url(#gC)"/>
+      </g>
+      <g fill="#fff">
+        <path d="M13 39.5L14.4 42.6 17.5 44 14.4 45.4 13 48.5 11.6 45.4 8.5 44 11.6 42.6Z" opacity=".9"/>
+        <path d="M8 7l.9 2.1L11 10l-2.1.9L8 13l-.9-2.1L5 10l2.1-.9Z"/>
+        <circle cx="46" cy="51" r="1.5"/><circle cx="20" cy="53" r="1.1"/>
+      </g>
+      <path d="M58 3l.9 2.1L61 6l-2.1.9L58 9l-.9-2.1L55 6l2.1-.9Z" fill="#fff3b0"/>
+    </symbol>
+  <symbol id="amigos" viewBox="0 0 24 24">
+      <path fill="#ff4f9a" d="M12 8.2C9.3 6.4 7.9 5 7.9 3.6c0-1.1.8-1.9 1.9-1.9.9 0 1.7.5 2.2 1.3.5-.8 1.3-1.3 2.2-1.3 1.1 0 1.9.8 1.9 1.9 0 1.4-1.4 2.8-4.1 4.6z"/>
+      <circle cx="8" cy="11.6" r="3" fill="currentColor"/><path fill="currentColor" d="M2 21.6c0-3.4 2.6-5.6 6-5.6s6 2.2 6 5.6z"/>
+      <g fill="currentColor" opacity=".78"><circle cx="16.6" cy="12.3" r="2.4"/><path d="M15.3 16.3c.4-.1.8-.2 1.3-.2 2.9 0 5.2 1.9 5.2 5.5h-5.5c0-2-.4-3.8-1-5.3z"/></g>
+    </symbol>
+  </defs>
+</svg>
+
+<main class="win"><div class="in">
+
+  <!-- 1 · barra de navegador -->
+  <header class="bar">
+    <div class="url"><span id="url"></span></div>
+    <button class="tab fr" id="fb" type="button" aria-label="Abrir amigos creadores"><svg aria-hidden="true"><use href="#amigos"/></svg></button>
+    <button class="tab" id="wb" type="button" aria-label="Abrir mensaje de bienvenida"><i class="fas fa-envelope-open-text"></i></button>
+  </header>
+
+  <!-- 4 · datos en tarjetas con icono -->
+  <section class="dat" id="dat" aria-label="Datos del personaje"></section>
+
+  <!-- 5 · ficha: texto a la izquierda, foto y enlaces a la derecha -->
+  <section class="body">
+
+    <h1 id="name"></h1>
+
+    <div class="main">
+      <div class="desc" id="desc"></div>
+    </div>
+
+    <aside class="side">
+      <div class="ver" id="ver"></div>
+      <figure class="photo"><img id="img" alt="Retrato del personaje"></figure>
+    </aside>
+
+    <h2 class="rt">Rating</h2>
+    <div class="rating" id="rating"></div>
+
+    <nav class="plats" id="plats" aria-label="Dónde chatear con el bot"></nav>
+
+    <!-- debajo de las dos columnas: reproductor, letra y etiquetas -->
+    <div class="low">
+
+      <div class="player">
+        <div class="cover">
+          <span class="disc" aria-hidden="true"><i class="fas fa-music"></i></span>
+          <img id="dimg" alt="">
+        </div>
+        <div class="pinfo"><p id="st"></p><small id="sa"></small></div>
+        <div class="ctl">
+          <button id="prev" type="button" aria-label="Anterior"><i class="fas fa-backward-step"></i></button>
+          <button id="pp" class="pp" type="button" aria-label="Reproducir o pausar"><i class="fas fa-play"></i></button>
+          <button id="next" type="button" aria-label="Siguiente"><i class="fas fa-forward-step"></i></button>
+        </div>
+        <div class="prog">
+          <span id="cur">0:00</span>
+          <div class="track" id="trk" role="slider" tabindex="0" aria-label="Progreso de la canción" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="fill"></i></div>
+          <span id="dur">0:00</span>
+        </div>
+      </div>
+
+      <!-- letra de la canción (se llena desde script.js) -->
+      <div class="lyr" id="lyr">
+        <h3>Letra</h3>
+        <div id="lall"></div>
+      </div>
+
+      <div class="tags" id="tags"></div>
+    </div>
+
+  </section>
+
+  <!-- calendario de adviento (ahora abajo): primero Masculinos y al bajar Femeninos; se llena desde script.js -->
+  <section class="cal">
+  <aside class="note" id="note"></aside>
+  <nav class="strip" id="strip" aria-label="Calendario de adviento" tabindex="0"></nav>
+  </section>
+
+</div></main>
+
+<!-- ventana: bienvenida -->
+<div class="modal" id="m-wel" role="dialog" aria-modal="true" aria-label="Bienvenidos">
+  <div class="card wel">
+    <button class="x" type="button" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
+    <div id="wbody"></div>
+  </div>
+</div>
+
+<!-- ventana: amigos creadores (se llena desde script.js, datos en AMIGOS) -->
+<div class="modal" id="m-fr" role="dialog" aria-modal="true" aria-label="Amigos creadores">
+  <div class="card frs">
+    <button class="x" type="button" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
+    <div class="ftb"><svg aria-hidden="true"><use href="#amigos"/></svg><h3 id="ft"></h3></div>
+    <p class="fsub" id="fs"></p>
+    <div class="fg" id="fl"></div>
+    <div class="orn" aria-hidden="true">✦ ♡ ✦</div>
+    <div class="fnote"><h4 id="fh"></h4><p id="fm"></p></div>
+  </div>
+</div>
+
+<!-- ventana: regalo que todavía no llega -->
+<div class="modal" id="m-gift" role="dialog" aria-modal="true" aria-label="Regalo sorpresa">
+  <div class="card letter">
+    <button class="x" type="button" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
+    <svg class="bigift" aria-hidden="true"><use href="#gift"/></svg>
+    <div class="orn" aria-hidden="true">❄ ♡ ❄</div>
+    <h3 id="gt">Regalo</h3>
+    <p>Este regalo llegará pronto ♡</p>
+    <p>Todavía lo estoy envolviendo con muchísimo cariño y un moño dorado. Vuelve a abrir esta puerta muy pronto: vale la pena esperar.</p>
+    <p class="sign"><span>Bachira</span> ♡</p>
+  </div>
+</div>
+
+<audio id="au" preload="none"></audio>
+<script src="https://elbachira.github.io/bots.js?v=1.0"></script>
+<script src="script.js"></script>
+</body>
+</html>
