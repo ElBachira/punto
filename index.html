@@ -13,7 +13,7 @@
 <body>
 <div id="sky" aria-hidden="true"></div>
 
-<!-- regalo de Navidad: se dibuja una vez y se reutiliza en cada puerta sin bot -->
+<!-- regalo de Navidad -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
     <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8db4"/><stop offset="1" stop-color="#d42a6b"/></linearGradient>
@@ -35,106 +35,94 @@
       </g>
       <path d="M58 3l.9 2.1L61 6l-2.1.9L58 9l-.9-2.1L55 6l2.1-.9Z" fill="#fff3b0"/>
     </symbol>
-  <symbol id="amigos" viewBox="0 0 24 24">
-      <path fill="#ff4f9a" d="M12 8.2C9.3 6.4 7.9 5 7.9 3.6c0-1.1.8-1.9 1.9-1.9.9 0 1.7.5 2.2 1.3.5-.8 1.3-1.3 2.2-1.3 1.1 0 1.9.8 1.9 1.9 0 1.4-1.4 2.8-4.1 4.6z"/>
-      <circle cx="8" cy="11.6" r="3" fill="currentColor"/><path fill="currentColor" d="M2 21.6c0-3.4 2.6-5.6 6-5.6s6 2.2 6 5.6z"/>
-      <g fill="currentColor" opacity=".78"><circle cx="16.6" cy="12.3" r="2.4"/><path d="M15.3 16.3c.4-.1.8-.2 1.3-.2 2.9 0 5.2 1.9 5.2 5.5h-5.5c0-2-.4-3.8-1-5.3z"/></g>
-    </symbol>
   </defs>
 </svg>
 
 <main class="win"><div class="in">
 
-  <!-- 1 · barra de navegador -->
+  <!-- barra de navegador con dos botones -->
   <header class="bar">
     <div class="url"><span id="url"></span></div>
-    <button class="tab fr" id="fb" type="button" aria-label="Abrir amigos creadores"><svg aria-hidden="true"><use href="#amigos"/></svg></button>
+    <button class="tab friends" id="fb" type="button" aria-label="Ver amigos creadores"><i class="fas fa-user-group"></i></button>
     <button class="tab" id="wb" type="button" aria-label="Abrir mensaje de bienvenida"><i class="fas fa-envelope-open-text"></i></button>
   </header>
 
-  <!-- 4 · datos en tarjetas con icono -->
-  <section class="dat" id="dat" aria-label="Datos del personaje"></section>
+  <!-- título del bot centrado -->
+  <h1 id="name"></h1>
 
-  <!-- 5 · ficha: texto a la izquierda, foto y enlaces a la derecha -->
-  <section class="body">
+  <!-- ficha de datos con iconos (nuevo diseño inspirado en imagen 3) -->
+  <div class="datacard">
+    <h2 class="dh"><i class="fas fa-id-card"></i> Ficha de Datos</h2>
+    <div class="dlist" id="dlist"></div>
+  </div>
 
-    <h1 id="name"></h1>
+  <!-- frase -->
+  <div class="desc" id="desc"></div>
 
-    <div class="main">
-      <div class="desc" id="desc"></div>
-    </div>
+  <!-- foto del personaje (más compacta) -->
+  <figure class="photo"><img id="img" alt="Retrato del personaje"></figure>
 
-    <aside class="side">
-      <div class="ver" id="ver"></div>
-      <figure class="photo"><img id="img" alt="Retrato del personaje"></figure>
-    </aside>
+  <!-- calendario de adviento más compacto -->
+  <nav class="strip" id="strip" aria-label="Calendario de adviento" tabindex="0"></nav>
 
+  <!-- letrero que señala hacia arriba -->
+  <aside class="note" id="note"></aside>
+
+  <!-- rating compacto -->
+  <div class="rtwrap">
     <h2 class="rt">Rating</h2>
     <div class="rating" id="rating"></div>
+  </div>
 
-    <nav class="plats" id="plats" aria-label="Dónde chatear con el bot"></nav>
+  <!-- enlaces a plataformas -->
+  <nav class="plats" id="plats" aria-label="Dónde chatear con el bot"></nav>
 
-    <!-- debajo de las dos columnas: reproductor, letra y etiquetas -->
-    <div class="low">
-
-      <div class="player">
-        <div class="cover">
-          <span class="disc" aria-hidden="true"><i class="fas fa-music"></i></span>
-          <img id="dimg" alt="">
-        </div>
-        <div class="pinfo"><p id="st"></p><small id="sa"></small></div>
-        <div class="ctl">
-          <button id="prev" type="button" aria-label="Anterior"><i class="fas fa-backward-step"></i></button>
-          <button id="pp" class="pp" type="button" aria-label="Reproducir o pausar"><i class="fas fa-play"></i></button>
-          <button id="next" type="button" aria-label="Siguiente"><i class="fas fa-forward-step"></i></button>
-        </div>
-        <div class="prog">
-          <span id="cur">0:00</span>
-          <div class="track" id="trk" role="slider" tabindex="0" aria-label="Progreso de la canción" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="fill"></i></div>
-          <span id="dur">0:00</span>
-        </div>
-      </div>
-
-      <!-- letra de la canción (se llena desde script.js) -->
-      <div class="lyr" id="lyr">
-        <h3>Letra</h3>
-        <div id="lall"></div>
-      </div>
-
-      <div class="tags" id="tags"></div>
+  <!-- reproductor -->
+  <div class="player">
+    <div class="cover">
+      <span class="disc" aria-hidden="true"><i class="fas fa-music"></i></span>
+      <img id="dimg" alt="">
     </div>
+    <div class="pinfo"><p id="st"></p><small id="sa"></small></div>
+    <div class="ctl">
+      <button id="prev" type="button" aria-label="Anterior"><i class="fas fa-backward-step"></i></button>
+      <button id="pp" class="pp" type="button" aria-label="Reproducir o pausar"><i class="fas fa-play"></i></button>
+      <button id="next" type="button" aria-label="Siguiente"><i class="fas fa-forward-step"></i></button>
+    </div>
+    <div class="prog">
+      <span id="cur">0:00</span>
+      <div class="track" id="trk" role="slider" tabindex="0" aria-label="Progreso de la canción" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="fill"></i></div>
+      <span id="dur">0:00</span>
+    </div>
+  </div>
 
-  </section>
+  <!-- letra -->
+  <div class="lyr" id="lyr">
+    <h3>Letra</h3>
+    <div id="lall"></div>
+  </div>
 
-  <!-- calendario de adviento (ahora abajo): primero Masculinos y al bajar Femeninos; se llena desde script.js -->
-  <section class="cal">
-  <aside class="note" id="note"></aside>
-  <nav class="strip" id="strip" aria-label="Calendario de adviento" tabindex="0"></nav>
-  </section>
+  <!-- etiquetas -->
+  <div class="tags" id="tags"></div>
+
+  <!-- info adicional oculta -->
+  <div class="ver" id="ver" hidden></div>
 
 </div></main>
 
 <!-- ventana: bienvenida -->
-<div class="modal" id="m-wel" role="dialog" aria-modal="true" aria-label="Bienvenidos">
-  <div class="card wel">
+<div class="modal" id="m-wel" role="dialog" aria-modal="true" aria-label="Bienvenida">
+  <div class="card letter">
     <button class="x" type="button" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
-    <div id="wbody"></div>
+    <div class="orn" aria-hidden="true">❄ ♡ ❄</div>
+    <h3>Bienvenidos</h3>
+    <p>Disfruté muchísimo hacer este calendario para ustedes. Ojalá disfruten todas estas tramas tan distintas, y todo lo que todavía está por venir.</p>
+    <p>Gracias por quedarse, por leer y por darle vida a cada personaje.</p>
+    <p class="sign">con mucho amor,<br><span>Bachira</span> ♡</p>
   </div>
 </div>
 
-<!-- ventana: amigos creadores (se llena desde script.js, datos en AMIGOS) -->
-<div class="modal" id="m-fr" role="dialog" aria-modal="true" aria-label="Amigos creadores">
-  <div class="card frs">
-    <button class="x" type="button" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
-    <div class="ftb"><svg aria-hidden="true"><use href="#amigos"/></svg><h3 id="ft"></h3></div>
-    <p class="fsub" id="fs"></p>
-    <div class="fg" id="fl"></div>
-    <div class="orn" aria-hidden="true">✦ ♡ ✦</div>
-    <div class="fnote"><h4 id="fh"></h4><p id="fm"></p></div>
-  </div>
-</div>
-
-<!-- ventana: regalo que todavía no llega -->
+<!-- ventana: regalo sorpresa -->
 <div class="modal" id="m-gift" role="dialog" aria-modal="true" aria-label="Regalo sorpresa">
   <div class="card letter">
     <button class="x" type="button" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
@@ -144,6 +132,17 @@
     <p>Este regalo llegará pronto ♡</p>
     <p>Todavía lo estoy envolviendo con muchísimo cariño y un moño dorado. Vuelve a abrir esta puerta muy pronto: vale la pena esperar.</p>
     <p class="sign"><span>Bachira</span> ♡</p>
+  </div>
+</div>
+
+<!-- ventana: amigos creadores (NUEVA) -->
+<div class="modal" id="m-friends" role="dialog" aria-modal="true" aria-label="Amigos creadores">
+  <div class="card friendcard">
+    <button class="x" type="button" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
+    <h3><i class="fas fa-user-group"></i> amigos creadores ✦</h3>
+    <p class="friendmsg">Gente talentosa que admiro. ¡Pasa a ver sus bots!</p>
+    <div class="friendgrid" id="friendgrid"></div>
+    <p class="friendfoot">Los quiero mucho ♡<br>Gracias por ser mis amigos, ¡son lo mejor!</p>
   </div>
 </div>
 
